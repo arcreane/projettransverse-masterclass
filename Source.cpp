@@ -1,18 +1,17 @@
-#include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
+#include <imgcodecs.hpp>
+#include <highgui.hpp>
+#include <imgproc.hpp>
 #include <iostream>
-using namespace cv;
-using namespace std;
+
 using namespace cv;
 using namespace std;
 
-void main(int argc, char** argv)
+void main()
 {
 	VideoCapture cap(0); // le 0 correspond à la webcame 0 de son ordinateur
 	Mat img;
 
-	while (true)
+	while(true)
 	{
 		cap.read(img);
 
