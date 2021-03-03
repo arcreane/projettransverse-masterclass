@@ -6,20 +6,22 @@ using namespace cv;
 using namespace std;
 int main(int argc, char** argv)
 {
-    if (argc != 2)
-    {
-        cout << " Usage: " << argv[0] << " ImageToLoadAndDisplay" << endl;
-        return -1;
+
+    VideoCapture stream1(0);   //0 is the id of video device.0 if you have only one camera.
+
+    if (!stream1.isOpened()) { //check if video device has been initialised
+        cout << "cannot open camera";
     }
-    Mat image;
-    image = imread(argv[1], IMREAD_COLOR); // Read the file
-    if (image.empty()) // Check for invalid input
-    {
-        cout << "Could not open or find the image" << std::endl;
-        return -1;
+
+    //unconditional loop
+    while (true) {
+        Mat cameraFrame;
+        stream1.read(cameraFrame);
+        imshow("cam", cameraFrame);
+        if (waitKey(30) >= 0)
+            break;
     }
-    namedWindow("Display window", WINDOW_AUTOSIZE); // Create a window for display.
-    imshow("Display window", image); // Show our image inside it.
-    waitKey(0); // Wait for a keystroke in the window
     return 0;
+
+
 }
