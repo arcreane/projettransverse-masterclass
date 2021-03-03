@@ -7,13 +7,13 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
-    VideoCapture stream1(0);   //0 is the id of video device.0 if you have only one camera.
+    VideoCapture stream1(0);   
 
-    if (!stream1.isOpened()) { //check if video device has been initialised
+    if (!stream1.isOpened()) { 
         cout << "cannot open camera";
     }
 
-    //unconditional loop
+
     while (true) {
         Mat cameraFrame;
         stream1.read(cameraFrame);
