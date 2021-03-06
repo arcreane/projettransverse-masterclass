@@ -4,8 +4,12 @@
 #include <iostream>
 using namespace cv;
 using namespace std;
-int main(int argc, char** argv)
+using namespace cv;
+using namespace std;
+
+void main(int argc, char** argv)
 {
+<<<<<<< HEAD
 
     VideoCapture stream1(0);   
 
@@ -24,4 +28,16 @@ int main(int argc, char** argv)
     return 0;
 
 
+=======
+	VideoCapture cap(0); // le 0 correspond à la webcame 0 de son ordinateur
+	Mat img;
+
+	while (true)
+	{
+		cap.read(img);
+
+		imshow("image", img);
+		waitkey(1);
+	}
+>>>>>>> detection_de_visage_image_fixe
 }
