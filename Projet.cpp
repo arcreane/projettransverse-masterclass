@@ -82,7 +82,7 @@ void detectAndDraw(Mat& img, CascadeClassifier& cascade,
         Mat smallImgROI;
         vector<Rect> nestedObjects;
         Point center;
-        Scalar color = Scalar(255, 0, 0); // Color for Drawing tool 
+        Scalar color = Scalar(0, 0, 255); // Color for Drawing tool 
         int radius;
 
         double aspect_ratio = (double)r.width / r.height;
