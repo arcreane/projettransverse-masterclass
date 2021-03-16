@@ -51,10 +51,10 @@ int main(int argc, const char** argv)
 
     // Load classifiers from "opencv/data/haarcascades" directory  
 
-    bool load = nestedCascade.load("C:\\Users\\lucas\\source\\repos\\projettransverse-masterclass\\out\\bin\Debug\\haarcascade_eye_tree_eyeglasses.xml");
+    bool load = nestedCascade.load("\\out\\bin\Debug\\haarcascade_eye_tree_eyeglasses.xml");
 
     // Change path before execution  
-    cascade.load("C:\\Users\\lucas\\source\\repos\\projettransverse-masterclass\\out\\bin\\Debug\\haarcascade_frontalcatface.xml");
+    cascade.load("\\out\\bin\\Debug\\haarcascade_frontalcatface.xml");
 
     // Start Video..1) 0 for WebCam 2) "Path to Video" for a Local Video 
 
@@ -74,7 +74,7 @@ int main(int argc, const char** argv)
 
             // Utilisation des touches du clavier
             if (c == 27 || c == 'q' || c == 'Q') {
-                cout << "Touche Q pour quitter" <<endl;
+                cout << "Touche Q pour quitter" << endl;
                 break;
             }
             else if (c == 27 || c == 'd' || c == 'D') {
@@ -120,7 +120,7 @@ void detectAndDraw(Mat& img, CascadeClassifier& cascade,
         Mat smallImgROI;
         vector<Rect> nestedObjects;
         Point center;
-        Scalar color = Scalar(255, 0, 0); // Color for Drawing tool 
+        Scalar color = Scalar(0, 0, 255); // Color for Drawing tool 
         int radius;
 
         double aspect_ratio = (double)r.width / r.height;
@@ -154,7 +154,7 @@ void detectAndDraw(Mat& img, CascadeClassifier& cascade,
         }
     }
 
-     
+
     // Show Processed Image with detected faces 
     imshow("Face Detection", img);
 }
