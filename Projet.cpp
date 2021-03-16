@@ -1,36 +1,25 @@
+// CPP program to detects face in a video 
+
+// Include required header files from OpenCV directory 
 #include "opencv2/objdetect.hpp" 
 #include "opencv2/highgui.hpp" 
-#include "opencv2/imgproc.hpp"
-
-#include <opencv2/core.hpp>
-#include <opencv2/imgcodecs.hpp>
-
-#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc.hpp" 
 #include <iostream> 
 #include <opencv2/core/types_c.h>
 
 using namespace std;
 using namespace cv;
-<<<<<<< HEAD
 
 // Function for Face Detection 
 void detectAndDraw(Mat& img, CascadeClassifier& cascade,
     CascadeClassifier& nestedCascade, double scale);
 string cascadeName, nestedCascadeName;
 
-
 int main(int argc, const char** argv)
 {
     // VideoCapture class for playing video for which faces to be detected 
     VideoCapture capture;
     Mat frame, image;
-=======
-using namespace std;
-
-void main(int argc, char** argv)
-{
-<<<<<<< HEAD
->>>>>>> 3b0d2733378d92de185da03d07b11638aedc79f7
 
     // PreDefined trained XML classifiers with facial features 
     CascadeClassifier cascade, nestedCascade;
@@ -38,13 +27,12 @@ void main(int argc, char** argv)
 
     // Load classifiers from "opencv/data/haarcascades" directory  
 
-    bool load = nestedCascade.load("C:\\Users\\lucas\\source\\repos\\projettransverse-masterclass\\out\\bin\Debug\\haarcascade_eye_tree_eyeglasses.xml");
+    bool load = nestedCascade.load("C:\\Users\\erwan\\OneDrive\\Documents\\EPSI\\B1\\Cours\\Projet Snapchat\\MasterClass\\out\\bin\\debug\\haarcascade_eye_tree_eyeglasses.xml");
 
     // Change path before execution  
-    cascade.load("C:\\Users\\lucas\\source\\repos\\projettransverse-masterclass\\out\\bin\\Debug\\haarcascade_frontalcatface.xml");
+    cascade.load("C:\\Users\\erwan\\OneDrive\\Documents\\EPSI\\B1\\Cours\\Projet Snapchat\\MasterClass\\out\\bin\\debug\\haarcascade_frontalcatface.xml");
 
     // Start Video..1) 0 for WebCam 2) "Path to Video" for a Local Video 
-
     capture.open(0);
     if (capture.isOpened())
     {
@@ -59,24 +47,13 @@ void main(int argc, char** argv)
             detectAndDraw(frame1, cascade, nestedCascade, scale);
             char c = (char)waitKey(10);
 
-            // Utilisation des touches du clavier
-            if (c == 27 || c == 'q' || c == 'Q') {
-                cout << "Touche Q pour quitter" << endl;
+            // Press q to exit from window 
+            if (c == 27 || c == 'q' || c == 'Q')
                 break;
-            }
-            else if (c == 27 || c == 'd' || c == 'D') {
-                cout << "Touche D" << endl;
-            }
-            else if (c == 27 || c == 's' || c == 'S') {
-                cout << "Touche S" << endl;
-            }
-
         }
-
     }
     else
         cout << "Could not Open Camera";
-
     return 0;
 }
 
@@ -105,7 +82,7 @@ void detectAndDraw(Mat& img, CascadeClassifier& cascade,
         Mat smallImgROI;
         vector<Rect> nestedObjects;
         Point center;
-        Scalar color = Scalar(255, 0, 0); // Color for Drawing tool 
+        Scalar color = Scalar(0, 0, 255); // Color for Drawing tool 
         int radius;
 
         double aspect_ratio = (double)r.width / r.height;
@@ -139,22 +116,6 @@ void detectAndDraw(Mat& img, CascadeClassifier& cascade,
         }
     }
 
-
-<<<<<<< HEAD
     // Show Processed Image with detected faces 
     imshow("Face Detection", img);
-=======
-=======
-	VideoCapture cap(0); // le 0 correspond à la webcame 0 de son ordinateur
-	Mat img;
-
-	while (true)
-	{
-		cap.read(img);
-
-		imshow("image", img);
-		waitkey(1);
-	}
->>>>>>> detection_de_visage_image_fixe
->>>>>>> 3b0d2733378d92de185da03d07b11638aedc79f7
 }
